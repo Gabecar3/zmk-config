@@ -8,7 +8,9 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
- 
+#include <dt-bindings/zmk/ext_power.h>
+
+
 &left_encoder { resolution = <3>; };
 &right_encoder { resolution = <3>; };
 
@@ -58,13 +60,13 @@
 // | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
 // |  RST  | INS  | PSCR | GUI   |       |      |                | PGUP |      |   ^   |      |       | RST   |
 // |OUTTOG |      |      |       |       |      |                | PGDN |   <- |   v   |  ->  |       | HOME  |
-// |       | UNDO | CUT  | COPY  | PASTE |      |      |  |      |      |      |       |      |       |  END  |
+// | EXTPWR| UNDO | CUT  | COPY  | PASTE |      |      |  |      |      |      |       |      |       |  END  |
 //                |      |       |       |      |      |  |      |      |      |       |      |
             bindings = <
-&bt BT_CLR    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4             &trans    &trans    &trans   &trans    &trans  &trans
-&reset        &kp INS      &kp PSCRN    &kp K_CMENU  &trans       &trans                   &kp PG_UP &trans    &kp UP   &trans    &trans  &reset
-&out OUT_TOG  &trans       &trans       &trans       &trans       &trans                   &kp PG_DN &kp LEFT  &kp DOWN &kp RIGHT &trans  &kp HOME
-&trans        &kp K_UNDO   &kp K_CUT    &kp K_COPY   &kp K_PASTE  &trans  &trans   &trans  &trans    &trans    &trans   &trans    &trans  &kp END
+&bt BT_CLR        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4             &trans    &trans    &trans   &trans    &trans  &trans
+&reset            &kp INS      &kp PSCRN    &kp K_CMENU  &trans       &trans                   &kp PG_UP &trans    &kp UP   &trans    &trans  &reset
+&out OUT_TOG      &trans       &trans       &trans       &trans       &trans                   &kp PG_DN &kp LEFT  &kp DOWN &kp RIGHT &trans  &kp HOME
+&ext_power EP_TOG &kp K_UNDO   &kp K_CUT    &kp K_COPY   &kp K_PASTE  &trans  &trans   &trans  &trans    &trans    &trans   &trans    &trans  &kp END
                            &trans       &trans       &trans       &trans  &trans   &trans  &trans    &trans    &trans   &trans
             >;
 
