@@ -9,6 +9,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/rgb.h>
 
 &left_encoder { resolution = <3>; };
 &right_encoder { resolution = <3>; };
@@ -59,14 +60,14 @@
 // | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
 // |  RST  |      |      |       |       |      |                | PGUP |      |   ^   |      |       | RST   |
 // |OUT TOG|      |      |       |       |      |                | PGDN |   <- |   v   |  ->  |       |       |
-// |       |      |      |       |       |      |      |  |      | HOME |  END |       |      |       |       |
+// |EXTTOG |RGBTOG|      |       |       |      |      |  |      | HOME |  END |       |      |       |       |
 //                |      |       |       |      |      |  |      |      |      |       |      |
             bindings = <
-&bt BT_CLR   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4             &trans    &trans    &trans   &trans    &trans  &trans
-&reset       &trans       &trans       &trans       &trans       &trans                   &kp PG_UP &trans    &kp UP   &trans    &trans  &reset
-&out OUT_TOG &trans       &trans       &trans       &trans       &trans                   &kp PG_DN &kp LEFT  &kp DOWN &kp RIGHT &trans  &trans
-&trans       &trans       &trans       &trans       &trans       &trans  &trans   &trans  &kp HOME  &kp END   &trans   &trans    &trans  &trans
-                          &trans       &trans       &trans       &trans  &trans   &trans  &trans    &trans    &trans   &trans
+&bt BT_CLR        &bt BT_SEL 0    &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4             &trans    &trans    &trans   &trans    &trans  &trans
+&reset            &trans          &trans       &trans       &trans       &trans                   &kp PG_UP &trans    &kp UP   &trans    &trans  &reset
+&out OUT_TOG      &trans          &trans       &trans       &trans       &trans                   &kp PG_DN &kp LEFT  &kp DOWN &kp RIGHT &trans  &trans
+&ext_power EP_TOG &rgb_ug RGB_TOG &trans       &trans       &trans       &trans  &trans   &trans  &kp HOME  &kp END   &trans   &trans    &trans  &trans
+                                  &trans       &trans       &trans       &trans  &trans   &trans  &trans    &trans    &trans   &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_PREV C_NEXT>;
