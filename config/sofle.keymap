@@ -71,7 +71,7 @@
 // | BTCLR |  BT1  |  BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
 // |RGB TOG|RGB HUI|RGB SAI|RGB BRI|RGB SPI|      |                | PGUP |      |   ^   |      |       |       |
 // |OUT TOG|RGB HUD|RGB SAD|RGB BRD|RGB SPD|      |                | PGDN |   <- |   v   |  ->  |       |       |
-// |RGB EFF|       |       |       |       |      |      |  |      | HOME |  END |       |      |       |       |
+// |RGB EFF|EXT PWR|       |       |       |      |      |  |      | HOME |  END |       |      |       |       |
 //                 |       |       |       |      |      |  |      |      |      |       |  RST |
             bindings = <
 &bt BT_CLR      &bt BT_SEL 0      &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4               &trans    &trans    &trans   &trans    &trans  &trans
